@@ -130,3 +130,16 @@ const createListItem = (e) => {
   txt.value = null;
 };
 
+const downloadPdf = () => {
+  const inputsData = handleFormData();
+  const doc = createPdf(inputsData);
+
+  doc.save(`resume-${inputsData.fullName}-${Date.now()}`);
+};
+
+const viewPdf = () => {
+  const inputsData = handleFormData();
+  const doc = createPdf(inputsData);
+
+  doc.output('dataurlnewwindow');
+};
