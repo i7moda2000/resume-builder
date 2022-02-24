@@ -114,3 +114,19 @@ function handleFormData() {
   return inputsData;
 }
 
+const createListItem = (e) => {
+  e.preventDefault();
+
+  const list = e.target.dataset.list;
+  const inp = e.target.dataset.inp;
+  const txt = document.querySelector(`#${inp}`);
+  const txtValue = cleanData(txt.value.trim());
+
+  if (!txtValue) return;
+
+  const li = document.createElement('li');
+  li.textContent = txtValue;
+  document.querySelector(`#${list}`).appendChild(li);
+  txt.value = null;
+};
+
