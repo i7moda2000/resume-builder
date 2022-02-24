@@ -91,3 +91,26 @@ const cleanData = (dirty) => {
 
 
 
+
+
+function handleFormData() {
+  let inputsData = {};
+
+  const inputs = document.querySelectorAll(
+    "input:not([data-type='notInput']) , textarea "
+  );
+  const lists = document.querySelectorAll('ul');
+
+  inputs.forEach((v) => {
+    inputsData = { ...inputsData, [v.name]: cleanData(v.value.trim()) };
+  });
+  lists.forEach((list) => {
+    inputsData = { ...inputsData, [list.id]: [] };
+    list.childNodes.forEach((item) => {
+      inputsData[list.id].push(cleanData(item.textContent.trim()));
+    });
+  });
+
+  return inputsData;
+}
+
