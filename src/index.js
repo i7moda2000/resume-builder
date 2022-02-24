@@ -82,3 +82,12 @@ function createPdf(data) {
 
   return doc;
 }
+
+
+const cleanData = (dirty) => {
+  return DOMPurify.sanitize(dirty, { ALLOWED_TAGS: [] });
+};
+
+
+
+
