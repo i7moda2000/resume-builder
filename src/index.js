@@ -143,3 +143,23 @@ const viewPdf = () => {
 
   doc.output('dataurlnewwindow');
 };
+
+function init() {
+  document
+    .querySelector('form')
+    .addEventListener('submit', (e) => e.preventDefault());
+
+  document.querySelector('#addSkill').addEventListener('click', createListItem);
+
+  document.querySelector('#addEdu').addEventListener('click', createListItem);
+
+  document.querySelector('#addCert').addEventListener('click', createListItem);
+
+  document.querySelector('#addExp').addEventListener('click', createListItem);
+
+  document.querySelector('#download').addEventListener('click', downloadPdf);
+
+  document.querySelector('#view').addEventListener('click', viewPdf);
+}
+
+window.onload = init();
